@@ -1,7 +1,7 @@
 getWishes();
 
 function getWishes() {
-    fetch("https://script.google.com/macros/s/AKfycbyzP2HAbW6uRkNY7nFdfYIXZdLYTplcz0v6rTyLZrgAPpyvgn7janNIEWRv5_dyHCnyiA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx4iOvotCDNttQClQfnoG3k59VbNcab5lzP4KZnVG6UEBhlYifHz781QflWYk9aHChR/exec", {
         method: "GET",
     })
     .then(response => response.json())
@@ -33,7 +33,7 @@ document.getElementById("rsvpForm").addEventListener("submit", function(event) {
     loadingIndicator.style.display = "block";
     submitButton.disabled = true;
 
-    fetch("https://script.google.com/macros/s/AKfycbyzP2HAbW6uRkNY7nFdfYIXZdLYTplcz0v6rTyLZrgAPpyvgn7janNIEWRv5_dyHCnyiA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx4iOvotCDNttQClQfnoG3k59VbNcab5lzP4KZnVG6UEBhlYifHz781QflWYk9aHChR/exec", {
         method: "POST",
         body: formData
     })
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updateWishes() {
-    fetch("https://script.google.com/macros/s/AKfycbyzP2HAbW6uRkNY7nFdfYIXZdLYTplcz0v6rTyLZrgAPpyvgn7janNIEWRv5_dyHCnyiA/exec?action=getWishes")
+    fetch("https://script.google.com/macros/s/AKfycbx4iOvotCDNttQClQfnoG3k59VbNcab5lzP4KZnVG6UEBhlYifHz781QflWYk9aHChR/exec?action=getWishes")
     .then(response => response.json())
     .then(data => {
         var wishesList = document.getElementById("wishesList");
@@ -88,7 +88,7 @@ function updateWishes() {
 }
 
 function updateTotalGuests() {
-    fetch("https://script.google.com/macros/s/AKfycbyzP2HAbW6uRkNY7nFdfYIXZdLYTplcz0v6rTyLZrgAPpyvgn7janNIEWRv5_dyHCnyiA/exec?action=getTotalGuests")
+    fetch("https://script.google.com/macros/s/AKfycbx4iOvotCDNttQClQfnoG3k59VbNcab5lzP4KZnVG6UEBhlYifHz781QflWYk9aHChR/exec?action=getTotalGuests")
     .then(response => response.text())
     .then(data => {
         document.getElementById("totalGuests").textContent = data;
