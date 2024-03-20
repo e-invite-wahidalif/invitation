@@ -27,18 +27,29 @@ document.getElementById("rsvpForm").addEventListener("submit", function(event) {
     
     var form = event.target;
     var formData = new FormData(form);
+    var loadingIndicator = document.getElementById("loadingIndicator");
+    var submitButton = document.querySelector("#rsvpForm button[type='submit']");
     
+    loadingIndicator.style.display = "block";
+    submitButton.disabled = true;
+
     fetch("https://script.google.com/macros/s/AKfycbyzP2HAbW6uRkNY7nFdfYIXZdLYTplcz0v6rTyLZrgAPpyvgn7janNIEWRv5_dyHCnyiA/exec", {
         method: "POST",
         body: formData
     })
     .then(response => response.text())
     .then(data => {
+        loadingIndicator.style.display = "none";
+        submitButton.disabled = false;
         alert(data);
         form.reset();
         getWishes();
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+        console.error(error);
+        loadingIndicator.style.display = "none";
+        submitButton.disabled = false;
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function() {
