@@ -68,3 +68,10 @@ body{
     background-color: #e4d4d4;
     border: #000000;
   }
+
+  @media (min-width = 450px) {
+    body {
+      height: auto;
+      max-width: 100%;
+    }
+  }
